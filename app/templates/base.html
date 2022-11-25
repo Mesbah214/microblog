@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +11,7 @@
     <title>Welcome to microblog</title>
     {% endif %}
 </head>
+
 <body>
     <div>
         Microblog:
@@ -17,6 +19,7 @@
         {% if current_user.is_anonymous %}
         <a href="{{ url_for('login') }}">Sign In</a>
         {% else %}
+        <a href="{{ url_for('user', username=current_user.username) }}">Profile</a>
         <a href="{{ url_for('logout') }}">Sign Out</a>
         {% endif %}
     </div>
@@ -32,4 +35,5 @@
     {% endwith %}
     {% block content %} {% endblock %}
 </body>
+
 </html>
