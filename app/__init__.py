@@ -34,6 +34,8 @@ if not app.debug:
         )
         mail_handler.setLevel(logging.ERROR)
         app.logger.addHandler(mail_handler)
+
+        # Keeps a logfile for errors
         if not os.path.exists("logs"):
             os.mkdir("logs")
         file_handler = RotatingFileHandler(
